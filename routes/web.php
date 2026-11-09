@@ -1,15 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\PageController;
 
-Route::get('/greeting', function () {
-    return "welcome to the learn laravel13 project";
-});
+Route::get('/greeting', [PageController::class, 'greeting']);
 
-Route::get('/user/{name}', function ($name) {
-    return "Halo, {name}!";
-});
+Route::get('/user/{name}', [PageController::class, 'user']);
 
-Route::get('/about/', function () {
-    return view('about');
-});
+Route::get('/about', [PageController::class, 'about']);
