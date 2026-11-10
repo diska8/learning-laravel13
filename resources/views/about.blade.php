@@ -11,7 +11,9 @@
     <h3>My Skills</h3>
     <ul>
         @foreach($skills as $skill)
-            <li>{{ $skill }}</li>
+            <li>
+                <strong>{{ $skill->name }}</strong>: {{ $skill->description }}
+            </li>
         @endforeach
     </ul>
 @endsection

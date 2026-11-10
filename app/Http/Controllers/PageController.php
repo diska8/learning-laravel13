@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -19,7 +20,7 @@ class PageController extends Controller
     public function about()
     {
         $name = "Diska Afiansyah Iqbal";
-        $skills = ['PHP', 'Laravel', 'MySQL', 'HTML', 'CSS', 'JavaScript'];
+        $skills = Skill::all();
         
         return view('about', compact('name', 'skills'));
     }
