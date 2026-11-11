@@ -44,4 +44,12 @@ class PageController extends Controller
 
         return redirect('/about');
     }
+
+    public function destroy($id)
+    {
+        $skill = Skill::findOrFail($id);
+        $skill->delete();
+
+        return redirect('/about');
+    }
 }

@@ -12,3 +12,5 @@ Route::get('/about', [PageController::class, 'about']);
 Route::get('skills/create', [PageController::class, 'create']);
 
 Route::post('skills', [PageController::class, 'store']);
+
+Route::delete('skills/{id}', [PageController::class, 'destroy']);
