@@ -24,4 +24,24 @@ class PageController extends Controller
         
         return view('about', compact('name', 'skills'));
     }
+
+    public function create()
+    {
+        return view('skills.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        Skill::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect('/about');
+    }
 }

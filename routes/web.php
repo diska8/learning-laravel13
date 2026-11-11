@@ -8,3 +8,7 @@ Route::get('/greeting', [PageController::class, 'greeting']);
 Route::get('/user/{name}', [PageController::class, 'user']);
 
 Route::get('/about', [PageController::class, 'about']);
+
+Route::get('skills/create', [PageController::class, 'create']);
+
+Route::post('skills', [PageController::class, 'store']);
