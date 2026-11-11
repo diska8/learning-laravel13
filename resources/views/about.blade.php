@@ -21,6 +21,7 @@
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Are you sure you want to delete this skill?')">Delete</button>
+                </form>
             </li>
         @endforeach
     </ul>

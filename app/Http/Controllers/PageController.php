@@ -51,5 +51,5 @@ class PageController extends Controller
         $skill->delete();
 
         return redirect('/about');
-    }
+    }   
 }
