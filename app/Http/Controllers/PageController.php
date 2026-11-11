@@ -52,4 +52,26 @@ class PageController extends Controller
 
         return redirect('/about');
     }   
+
+    public function edit($id)
+    {
+        $skill = skill::findorFail($id);
+
+        return view('skills.edit', compact('skill'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $skill = skill::findOrFail($id);
+        $skill->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+        return redirect('/about');
+    }
 }

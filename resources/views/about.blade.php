@@ -17,6 +17,8 @@
             <li style="margin-bottom: 10px;">
                 <strong>{{ $skill->name }}</strong>: {{ $skill->description }}
 
+                <a href="/skills/{{ $skill->id }}/edit">Edit</a>
+
                 <form action="/skills/{{ $skill->id }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
