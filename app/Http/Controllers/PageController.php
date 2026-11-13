@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Skill;
+use App\Models\Skill; 
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -23,55 +23,5 @@ class PageController extends Controller
         $skills = Skill::all();
         
         return view('about', compact('name', 'skills'));
-    }
-
-    public function create()
-    {
-        return view('skills.create');
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-
-        Skill::create([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
-
-        return redirect('/about');
-    }
-
-    public function destroy($id)
-    {
-        $skill = Skill::findOrFail($id);
-        $skill->delete();
-
-        return redirect('/about');
-    }   
-
-    public function edit($id)
-    {
-        $skill = skill::findorFail($id);
-
-        return view('skills.edit', compact('skill'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-
-        $skill = skill::findOrFail($id);
-        $skill->update([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
-        return redirect('/about');
     }
 }

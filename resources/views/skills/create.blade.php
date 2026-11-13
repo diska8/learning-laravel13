@@ -3,7 +3,7 @@
 @section('content')
     <h1>Add New Skill</h1>
 
-    <form action="/skills" method="POST">
+    <form action="{{ route('skills.store') }}" method="POST">
         @csrf {{-- This Security Must be Laravel to Form POST --}}
         <div>
             <label for="name">Skill Name:</label>
@@ -16,5 +16,5 @@
         <button type="submit">Save Skill</button>
     </form>
     <br>
-    <a href="/about"> Back to About Page</a>
+   <a href="{{ route('about') }}">← Kembali ke About</a>
 @endsection

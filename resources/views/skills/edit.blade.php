@@ -3,7 +3,7 @@
 @section('content')
     <h1>Edit Skill</h1>
 
-    <form action="/skills/{{ $skill->id }}" method="POST">
+    <form action="{{ route('skills.update', $skill->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -20,5 +20,5 @@
         <button type="submit">Update Skill</button>
     </form>
     <br>
-    <a href="/about">Cancel</a>
+    <a href="{{ route('about') }}">Cancel</a>
 @endsection
