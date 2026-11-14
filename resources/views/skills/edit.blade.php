@@ -1,24 +1,33 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Edit Skill</h1>
+    <div class="bg-white rounded-xl shadow-md p-8 max-w-xl mx-auto">
+        <h1 class="text-2xl font-bold text-slate-900 mb-6">Edit Skill</h1>
 
-    <form action="{{ route('skills.update', $skill->id) }}" method="POST">
-        @csrf
-        @method('PUT')
+        <form action="{{ route('skills.update', $skill->id) }}" method="POST" class="space-y-4">
+            @csrf
+            @method('PUT')
 
-        <div>
-            <label for="name">Skill Name:</label><br>
-            <input type="text" name="name" id="name" value="{{ $skill->name }}" required>
-        </div>
-        <br>
-        <div>
-            <label for="description">Description:</label><br>
-            <textarea id="description" name="description" required>{{ $skill->description }}</textarea>
-        </div>
-        <br>
-        <button type="submit">Update Skill</button>
-    </form>
-    <br>
-    <a href="{{ route('about') }}">Cancel</a>
+            <div>
+                <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name Skill</label>
+                <input type="text" id="name" name="name" value="{{ $skill->name }}" required
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+                <label for="description" class="block text-sm font-medium text-slate-700 mb-1">Deskription</label>
+                <textarea id="description" name="description" rows="3" required
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ $skill->description }}</textarea>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-5 py-2 rounded-lg transition">
+                    Update Skill
+                </button>
+                <a href="{{ route('about') }}" class="text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
 @endsection

@@ -29,7 +29,7 @@ class SkillController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('/about');
+        return redirect()->route('about')->with('success', 'Skill created successfully!');
     }
 
     public function edit($id)
@@ -51,7 +51,7 @@ class SkillController extends Controller
             'description' => $request->description,
         ]);
         
-        return redirect('/about');
+        return redirect()->route('about')->with('success', 'Skill updated successfully!');
     }
 
     public function destroy($id)
@@ -59,6 +59,6 @@ class SkillController extends Controller
         $skill = Skill::findOrFail($id);
         $skill->delete();
 
-        return redirect('/about');
+        return redirect()->route('about')->with('success', 'Skill deleted successfully!');
     }
 }
