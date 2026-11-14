@@ -20,7 +20,7 @@ class PageController extends Controller
     public function about()
     {
         $name = "Diska Afiansyah Iqbal";
-        $skills = Skill::all();
+        $skills = Skill::with('category')->get();
         
         return view('about', compact('name', 'skills'));
     }

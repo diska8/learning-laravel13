@@ -22,6 +22,9 @@
                     <div class="border border-slate-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between hover:border-indigo-300 transition bg-slate-50/50">
                         <div class="mb-3 sm:mb-0">
                             <h3 class="font-bold text-lg text-slate-800">{{ $skill->name }}</h3>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
+                                {{ $skill->category->name ?? 'Without Category'}}
+                            </span>
                             <p class="text-slate-600 text-sm mt-0.5">{{ $skill->description }}</p>
                         </div>
 
